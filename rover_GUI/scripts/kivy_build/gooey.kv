@@ -1,0 +1,209 @@
+WindowManager:
+    Window:
+
+<RegularLabel@Label>:
+    text_size:self.size
+    halign:'left'
+    valign:'center'
+
+<BoldLabel@Label>:
+    text_size:self.size
+    bold:True
+
+
+<Window>:
+    BoxLayout:
+        name:"Window"
+        orientation:"vertical"
+        padding:10
+
+        BoxLayout:
+            size_hint:1,0.13
+
+            canvas.before:
+                Color:
+                    rgba:(128/225,128/225,128/225,1)
+                Rectangle:
+                    source:'/home/ninaad/catkin_ws/src/rover_GUI/scripts/kivy_build/ambient.jpeg'
+                    size:self.size
+                    pos:self.pos
+
+            Label:
+                text:"System"
+        
+                font_size:45
+                halign:"left"
+                font_style:"roboto mono"
+                bold:True
+                italic:True
+                color:(1,1,1,1)
+                outline_color:(0,0,0)
+                outline_width:3
+
+            Image:
+                id:logo
+                source:"/home/ninaad/catkin_ws/src/rover_GUI/scripts/kivy_build/kratoslogohead.png"
+                pos_hint:{"center_x":0.75,"center_y":0.5}
+                size_hint_x: 0.13
+                allow_stretch: True 
+
+        BoxLayout:
+            orientation:"vertical"
+            size_hint:1,0.2
+
+            Button:
+                text:"Rosmaster"
+
+                pos_hint:{'center_x':0.5,'center_y':0}
+                size_hint:(None,None)
+                width:100
+                height:50
+
+        BoxLayout:
+            orientation:"vertical"
+            padding:10
+            size_hint:1,0.06
+            canvas:
+                Line:
+                    rounded_rectangle:self.x,self.y,self.width,self.height,10
+                    width:2
+            RegularLabel:
+                text:"System check"
+
+        GridLayout:
+            cols:2
+            size_hint:1,0.6
+            spacing:5
+            padding:10
+
+            canvas:
+                Line:
+                    rounded_rectangle:self.x,self.y,self.width,self.height,10
+                    width:2
+                
+            #Label:
+                #text:"system check"
+
+            BoxLayout:
+                canvas:
+                    Line:
+                        rounded_rectangle:self.x,self.y,self.width,self.height,10
+                        width:2
+                orientation:"vertical"
+                padding:10  
+                Button:
+                    size_hint_y:0.2
+                    text:"Arm"
+                    halign:'center'
+
+                GridLayout:
+                    cols:2
+                    #size_hint:1,0.5
+                    spacing:5   
+
+                    #other_motors
+                    BoxLayout:  
+                        orientation:"vertical"         
+                        padding:2     
+                        BoxLayout:  
+                            Button:
+                                id:b1
+                                size_hint:2.5,1
+                                text: "other motors"
+                   
+
+                        BoxLayout:    
+                            RegularLabel:
+                                size_hint:2.5,1
+                                text:"base"
+                        
+                        BoxLayout: 
+                            RegularLabel:
+                                size_hint:2.5,1
+                                text:"bevel roll"
+
+                        BoxLayout:  
+                            RegularLabel:
+                                size_hint:2.5,1
+                                text:"bevel pitch"
+                        BoxLayout:  
+                            RegularLabel:
+                                size_hint:2.5,1
+                                text:"gripper"          
+
+                    #actuators
+                    BoxLayout:  
+                        orientation:"vertical"     
+                        padding:2         
+                        BoxLayout:  
+                            Button:
+                                id:b2
+                                size_hint:2.5,1
+                                text: "actuators"
+                        
+
+                        BoxLayout:    
+                            RegularLabel:
+                                size_hint:2.5,1
+                                text:"4-inch actuator"
+                        
+                        BoxLayout: 
+                            RegularLabel:
+                                size_hint:2.5,1
+                                text:"6-inch actuator"
+
+                        BoxLayout:  
+                            RegularLabel:
+                                size_hint:2.5,1
+                                text:"bevel stepper"
+                        BoxLayout:  
+                            RegularLabel:
+                                size_hint:2.5,1
+                                text:"servo"                                    
+    
+            BoxLayout:
+                canvas:
+                    Line:
+                        rounded_rectangle:self.x,self.y,self.width,self.height,10
+                        width:2
+                orientation:"vertical"
+                padding:10  
+                Button:
+                    size_hint_y:0.2
+                    text:"Drive"
+                    halign:'center'
+
+                #Drive
+                BoxLayout:  
+                    orientation:"vertical"    
+                    padding:2   
+                    BoxLayout:  
+                        Button:
+                            id:b1
+                            size_hint:2.5,1
+                            text: "/rover"
+                   
+
+                    BoxLayout: 
+                        RegularLabel:
+                            size_hint:2.5,1
+                            text:"forward"            
+
+                    BoxLayout:    
+                        RegularLabel:
+                            size_hint:2.5,1
+                            text:"right(CW)"
+                    
+                    BoxLayout: 
+                        RegularLabel:
+                            size_hint:2.5,1
+                            text:"left(CCCW)"
+        Button:
+            text:"back"
+            pos_hint:{'center_x':0.5}                
+            size_hint:(None,None)
+            width:100
+            height:50
+
+  
+
